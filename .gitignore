@@ -1,0 +1,14 @@
+# Maven
+target/
+
+
+# VS Code
+.vscode/
+
+# Logs and reports
+test-output/
+surefire-reports/
+
+# OS files
+.DS_Store
+Thumbs.db
