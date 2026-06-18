@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import org.testng.Assert;
+import org.openqa.selenium.Keys;
 
 public class MyInfoPage {
     
@@ -12,7 +13,9 @@ public class MyInfoPage {
 
     private final By myInfoMenu = By.xpath("//span[text()='My Info']");
     private final By myInfoHeader = By.xpath("//div[@class = 'orangehrm-edit-employee-imagesection']");
-    
+    private final By pdFirstName = By.xpath("//input[@name = 'firstName']");
+    private final By pdMiddleName = By.xpath("//input[@name = 'middleName']");
+    private final By pdLastName = By.xpath("//input[@name = 'lastName']");
     public MyInfoPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -23,5 +26,18 @@ public class MyInfoPage {
 
     public boolean myInfoPageIsDisplayed(){
         return driver.findElement(myInfoHeader).isDisplayed();
+    }
+
+    public void pdFillEmployeeName(String firstName,String middleName, String lastName) throws InterruptedException{
+         driver.findElement(pdFirstName).sendKeys(Keys.CONTROL + "a");
+         driver.findElement(pdFirstName).sendKeys(Keys.DELETE);
+         driver.findElement(pdFirstName).sendKeys(firstName);
+         driver.findElement(pdMiddleName).sendKeys(Keys.CONTROL + "a");
+         driver.findElement(pdMiddleName).sendKeys(Keys.DELETE);
+         driver.findElement(pdMiddleName).sendKeys(middleName);
+         driver.findElement(pdLastName).sendKeys(Keys.CONTROL + "a");
+         driver.findElement(pdLastName).sendKeys(Keys.DELETE);
+         driver.findElement(pdLastName).sendKeys(lastName);
+
     }
 }

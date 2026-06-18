@@ -16,6 +16,10 @@ public class MyInfoTest extends BaseTest{
         DashboardPage dashboardPage = new DashboardPage(driver);
         MyInfoPage myInfoPage = new MyInfoPage(driver);
 
+        String firstName = "Sudhanshu";
+        String middleName = "Sekhar";
+        String lastName = "Barah";
+
 
          loginPage.open();
         loginPage.login(validUsername, validPassword);
@@ -27,5 +31,14 @@ public class MyInfoTest extends BaseTest{
         Thread.sleep(5000);
 
         Assert.assertTrue(myInfoPage.myInfoPageIsDisplayed(),"My Info page is visible on clicking");
-}
+        
+
+        myInfoPage.pdFillEmployeeName(firstName,middleName,lastName);
+
+
+
+
+
+
+    }
 }
