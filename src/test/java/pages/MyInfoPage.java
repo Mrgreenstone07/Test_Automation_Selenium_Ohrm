@@ -16,6 +16,9 @@ public class MyInfoPage {
     private final By pdFirstName = By.xpath("//input[@name = 'firstName']");
     private final By pdMiddleName = By.xpath("//input[@name = 'middleName']");
     private final By pdLastName = By.xpath("//input[@name = 'lastName']");
+    private final By pdEmpId = By.xpath("//label[normalize-space()='Employee Id']/ancestor::div[contains(@class,'oxd-input-group')]//input");
+    private final By otherEmpId = By.xpath("//label[normalize-space()='Other Id']/ancestor::div[contains(@class,'oxd-input-group')]//input");
+
     public MyInfoPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -39,5 +42,15 @@ public class MyInfoPage {
          driver.findElement(pdLastName).sendKeys(Keys.DELETE);
          driver.findElement(pdLastName).sendKeys(lastName);
 
+    }
+
+    public void fillEmpIdAndOtherId(String EmpId,String OtherId){
+        driver.findElement(pdEmpId).sendKeys(Keys.CONTROL + "a");
+         driver.findElement(pdEmpId).sendKeys(Keys.DELETE);
+         driver.findElement(pdEmpId).sendKeys(EmpId);
+
+         driver.findElement(otherEmpId).sendKeys(Keys.CONTROL + "a");
+         driver.findElement(otherEmpId).sendKeys(Keys.DELETE);
+         driver.findElement(otherEmpId).sendKeys(OtherId);
     }
 }

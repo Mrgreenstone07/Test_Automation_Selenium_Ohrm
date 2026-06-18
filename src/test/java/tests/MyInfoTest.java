@@ -20,6 +20,9 @@ public class MyInfoTest extends BaseTest{
         String middleName = "Sekhar";
         String lastName = "Barah";
 
+        String EmpId = "Sid";
+        String OtherId = "5858";
+
 
          loginPage.open();
         loginPage.login(validUsername, validPassword);
@@ -32,10 +35,10 @@ public class MyInfoTest extends BaseTest{
 
         Assert.assertTrue(myInfoPage.myInfoPageIsDisplayed(),"My Info page is visible on clicking");
         
-
+        Thread.sleep(5000);
         myInfoPage.pdFillEmployeeName(firstName,middleName,lastName);
 
-
+        myInfoPage.fillEmpIdAndOtherId(EmpId, OtherId);
 
 
 
