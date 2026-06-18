@@ -17,8 +17,9 @@ public class MyInfoPage {
     private final By pdMiddleName = By.xpath("//input[@name = 'middleName']");
     private final By pdLastName = By.xpath("//input[@name = 'lastName']");
     private final By pdEmpId = By.xpath("//label[normalize-space()='Employee Id']/ancestor::div[contains(@class,'oxd-input-group')]//input");
-    private final By otherEmpId = By.xpath("//label[normalize-space()='Other Id']/ancestor::div[contains(@class,'oxd-input-group')]//input");
-
+    private final By pdOtherEmpId = By.xpath("//label[normalize-space()='Other Id']/ancestor::div[contains(@class,'oxd-input-group')]//input");
+    private final By pdDrivingLicenceNmbr = By.xpath("//label[normalize-space()=concat('Driver',\"'\",'s License Number')]/ancestor::div[contains(@class,'oxd-input-group')]//input");
+    
     public MyInfoPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -49,8 +50,14 @@ public class MyInfoPage {
          driver.findElement(pdEmpId).sendKeys(Keys.DELETE);
          driver.findElement(pdEmpId).sendKeys(EmpId);
 
-         driver.findElement(otherEmpId).sendKeys(Keys.CONTROL + "a");
-         driver.findElement(otherEmpId).sendKeys(Keys.DELETE);
-         driver.findElement(otherEmpId).sendKeys(OtherId);
+         driver.findElement(pdOtherEmpId).sendKeys(Keys.CONTROL + "a");
+         driver.findElement(pdOtherEmpId).sendKeys(Keys.DELETE);
+         driver.findElement(pdOtherEmpId).sendKeys(OtherId);
+    }
+
+    public void fillDrivingLicenceNum(String Dl){
+        driver.findElement(pdDrivingLicenceNmbr).sendKeys(Keys.CONTROL + "a");
+        driver.findElement(pdDrivingLicenceNmbr).sendKeys(Keys.DELETE);
+        driver.findElement(pdDrivingLicenceNmbr).sendKeys(Dl);
     }
 }

@@ -21,8 +21,9 @@ public class MyInfoTest extends BaseTest{
         String lastName = "Barah";
 
         String EmpId = "Sid";
-        String OtherId = "5858";
-
+        String OtherId = "E5858";
+        
+        String Dl = "D78787";
 
          loginPage.open();
         loginPage.login(validUsername, validPassword);
@@ -39,6 +40,8 @@ public class MyInfoTest extends BaseTest{
         myInfoPage.pdFillEmployeeName(firstName,middleName,lastName);
 
         myInfoPage.fillEmpIdAndOtherId(EmpId, OtherId);
+
+        myInfoPage.fillDrivingLicenceNum(Dl);
 
 
 
