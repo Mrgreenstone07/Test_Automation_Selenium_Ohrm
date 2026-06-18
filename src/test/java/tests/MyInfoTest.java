@@ -24,6 +24,7 @@ public class MyInfoTest extends BaseTest{
         String OtherId = "E5858";
         
         String Dl = "D78787";
+        String DlExpDate = "2026-18-08";
 
          loginPage.open();
         loginPage.login(validUsername, validPassword);
@@ -41,7 +42,7 @@ public class MyInfoTest extends BaseTest{
 
         myInfoPage.fillEmpIdAndOtherId(EmpId, OtherId);
 
-        myInfoPage.fillDrivingLicenceNum(Dl);
+        myInfoPage.fillDrivingLicenceNumAndExpDate(Dl,DlExpDate);
 
 
 

@@ -19,7 +19,11 @@ public class MyInfoPage {
     private final By pdEmpId = By.xpath("//label[normalize-space()='Employee Id']/ancestor::div[contains(@class,'oxd-input-group')]//input");
     private final By pdOtherEmpId = By.xpath("//label[normalize-space()='Other Id']/ancestor::div[contains(@class,'oxd-input-group')]//input");
     private final By pdDrivingLicenceNmbr = By.xpath("//label[normalize-space()=concat('Driver',\"'\",'s License Number')]/ancestor::div[contains(@class,'oxd-input-group')]//input");
-    
+    private final By pdLicenceExpDate = By.xpath("//label[normalize-space()='License Expiry Date']/ancestor::div[contains(@class,'oxd-input-group')]//input");
+
+
+
+
     public MyInfoPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -55,9 +59,15 @@ public class MyInfoPage {
          driver.findElement(pdOtherEmpId).sendKeys(OtherId);
     }
 
-    public void fillDrivingLicenceNum(String Dl){
+    public void fillDrivingLicenceNumAndExpDate(String Dl,String DlExpDate){
         driver.findElement(pdDrivingLicenceNmbr).sendKeys(Keys.CONTROL + "a");
         driver.findElement(pdDrivingLicenceNmbr).sendKeys(Keys.DELETE);
         driver.findElement(pdDrivingLicenceNmbr).sendKeys(Dl);
+
+        driver.findElement(pdLicenceExpDate).sendKeys(Keys.CONTROL + "a");
+        driver.findElement(pdLicenceExpDate).sendKeys(Keys.DELETE);
+        driver.findElement(pdLicenceExpDate).sendKeys(DlExpDate);
     }
+
+    
 }
